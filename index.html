@@ -52,13 +52,13 @@
 
             <div id="model-whisper">
                 Whisper model: <span id="model-whisper-status"></span>
-                <button id="fetch-whisper-tiny-en" onclick="loadWhisper('tiny.en')">tiny.en (75 MB)</button>
-                <button id="fetch-whisper-base-en" onclick="loadWhisper('base.en')">base.en (142 MB)</button>
+                <button id="fetch-whisper-tiny-en" onclick="loadWhisper('base.q5')">base.q5 (60 MB)</button>
+                <button id="fetch-whisper-base-en" onclick="loadWhisper('tiny.en')">base (142 MB)</button>
                 <br><br>
-                Quantized models:<br><br>
+                <!-- Quantized models:<br><br>
                 <button id="fetch-whisper-tiny-en-q5_1"   onclick="loadWhisper('tiny-en-q5_1')">tiny.en (Q5_1, 31 MB)</button>
                 <button id="fetch-whisper-base-en-q5_1"   onclick="loadWhisper('base-en-q5_1')">base.en (Q5_1, 57 MB)</button>
-                <span id="fetch-whisper-progress"></span>
+                <span id="fetch-whisper-progress"></span> -->
 
                 <!--
                     <input type="file" id="file" name="file" onchange="loadFile(event, 'whisper.bin')" />
@@ -174,18 +174,18 @@
             function loadWhisper(model) {
                 let urls = {
                     'tiny.en': '/ggml-base',
-                    'base.en': '/ggml-model-whisper-base.en.bin',
+                    'base.q5': '/ggml-model-whisper-base-q5_1',
 
-                    'tiny-en-q5_1':  '/ggml-model-whisper-tiny.en-q5_1.bin',
-                    'base-en-q5_1':  '/ggml-model-whisper-base.en-q5_1.bin',
+                    // 'tiny-en-q5_1':  '/ggml-model-whisper-tiny.en-q5_1.bin',
+                    // 'base-en-q5_1':  '/ggml-model-whisper-base.en-q5_1.bin',
                 };
 
                 let sizes = {
                     'tiny.en': 142,
-                    'base.en': 142,
+                    'base.q5': 60,
 
-                    'tiny-en-q5_1':   31,
-                    'base-en-q5_1':   57,
+                    // 'tiny-en-q5_1':   31,
+                    // 'base-en-q5_1':   57,
                 };
 
                 let url     = urls[model];
